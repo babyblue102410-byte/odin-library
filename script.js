@@ -17,12 +17,6 @@ const readList = document.querySelector("#read-list");
 const unreadList = document.querySelector("#unread-list");
 const bookForm = document.querySelector("#book-form");
 
-//Test books
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
-addBookToLibrary("Harry Potter", "J.K. Rowling", 309, false);
-addBookToLibrary("Animal Farm", "George Orwell", 112, true);
-addBookToLibrary("Dune", "Frank Herbert", 412, false);
-
 function displayBooks() {
     readList.replaceChildren();
     unreadList.replaceChildren();
