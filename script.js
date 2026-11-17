@@ -40,7 +40,7 @@ function displayBooks() {
         } else {
             unreadList.appendChild(bookCard);
         }
-        
+
         const removeButton = document.createElement("button");
 
         removeButton.textContent = "Remove";
@@ -55,8 +55,20 @@ function displayBooks() {
     if (bookIndex !== -1) {
         myLibrary.splice(bookIndex, 1);
         displayBooks();
-    }
-});
+        }
+    });
+
+    const toggleButton = document.createElement("button");
+
+    toggleButton.textContent = book.read ? "Mark Unread" : "Mark Read";
+
+    bookCard.appendChild(toggleButton);
+
+    toggleButton.addEventListener("click", () => {
+        book.read = !book.read;
+        displayBooks();
+        });
+
     }
 }
 
