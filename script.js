@@ -15,6 +15,7 @@ function addBookToLibrary(title, author, pages, read) {
 
 const readList = document.querySelector("#read-list");
 const unreadList = document.querySelector("#unread-list");
+const bookForm = document.querySelector("#book-form");
 
 //Test books
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
@@ -39,7 +40,46 @@ function displayBooks() {
         } else {
             unreadList.appendChild(bookCard);
         }
+        
+        const removeButton = document.createElement("button");
+
+        removeButton.textContent = "Remove";
+
+        bookCard.appendChild(removeButton);
+
+        removeButton.addEventListener("click", () => {
+        const bookIndex = myLibrary.findIndex((item) => {
+        return item.id === book.id;
+    });
+
+    if (bookIndex !== -1) {
+        myLibrary.splice(bookIndex, 1);
+        displayBooks();
+    }
+});
     }
 }
 
 displayBooks();
+
+bookForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const titleInput = document.querySelector("#title");
+    const title = titleInput.value;
+
+    const authorInput = document.querySelector("#author");
+    const author = authorInput.value;
+
+    const pagesInput = document.querySelector("#pages");
+    const pages = Number(pagesInput.value);
+
+    const readInput = document.querySelector("#read");
+    const read = readInput.checked;
+
+    addBookToLibrary(title, author, pages, read);
+
+    displayBooks();
+
+    bookForm.reset();
+});

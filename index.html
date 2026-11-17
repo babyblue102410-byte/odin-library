@@ -19,5 +19,21 @@
             <div id="unread-list"></div>
         </div>
     </div>
+
+    <form id="book-form">
+        <label for="title">Book Title</label>
+        <input id="title" type="text" required>
+
+        <label for="author">Book Author</label>
+        <input id="author" type="text" required>
+
+        <label for="pages">Pages</label>
+        <input id="pages" type="number" min="1" required>
+
+        <label for="read">I've read this book</label>
+        <input id="read" type="checkbox">
+
+        <button type="submit">Add Book</button>
+    </form>
 </body>
 </html>
